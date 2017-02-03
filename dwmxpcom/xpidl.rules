@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="XPIDL Tool"
+	Version="8.00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="XpIdlTool"
+			DisplayName="XPIDL Tool"
+			CommandLine="&quot;$(GeckoSDKDir)bin\xpidl.exe&quot; -I &quot;$(GeckoSDKDir)idl&quot; [IncludePaths] [Warnings] [AdditionalOptions] -m header -o &quot;$(InputName)&quot; [Inputs]&#x0D;&#x0A;&quot;$(GeckoSDKDir)bin\xpidl.exe&quot; -I &quot;$(GeckoSDKDir)idl&quot; [IncludePaths] [Annote] [AdditionalOptions] -m typelib -o &quot;$(OutDir)\$(InputName)&quot; [Inputs]"
+			Outputs="$(InputName).h;&quot;$(OutDir)\$(InputName).xpt&quot; "
+			FileExtensions="*.idl"
+			ExecutionDescription="$(InputFileName)..."
+			>
+			<Properties>
+				<StringProperty
+					Name="IncludePaths"
+					DisplayName="Additional Include Paths"
+					Description="Additional paths to search for included IDL files."
+					Switch="-I &quot;[value]&quot;"
+					Delimited="true"
+					Delimiters=";"
+					Inheritable="true"
+				/>
+				<EnumProperty
+					Name="Warnings"
+					DisplayName="Display Warnings"
+					Description="Displays warnings about interface syntax and form."
+					DefaultValue="1"
+					>
+					<Values>
+						<EnumValue
+							Value="0"
+							DisplayName="No"
+						/>
+						<EnumValue
+							Value="1"
+							Switch="-w"
+							DisplayName="Yes (-w)"
+						/>
+					</Values>
+				</EnumProperty>
+				<EnumProperty
+					Name="Annote"
+					DisplayName="Emit Annotations"
+					Description="Emits annotations into the binary type-library"
+					>
+					<Values>
+						<EnumValue
+							Value="0"
+							DisplayName="No"
+						/>
+						<EnumValue
+							Value="1"
+							Switch="-e"
+							DisplayName="Yes (-e)"
+						/>
+					</Values>
+				</EnumProperty>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>
