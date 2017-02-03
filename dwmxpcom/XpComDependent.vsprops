@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Gecko SDK"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="$(GeckoSDKDir)include"
+		PreprocessorDefinitions="XP_WIN;XP_WIN32;MOZILLA_STRICT_API"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalOptions="/DEFAULTLIB:nspr4 /DEFAULTLIB:xpcom /DEFAULTLIB:xpcomglue_s"
+		AdditionalLibraryDirectories="$(GeckoSDKDir)lib"
+	/>
+	<UserMacro
+		Name="GeckoSDKDir"
+		Value="$(SolutionDir)gecko-sdk\"
+	/>
+</VisualStudioPropertySheet>
